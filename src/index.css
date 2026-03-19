@@ -1,0 +1,77 @@
+:root {
+  --text: #334155;
+  --text-heading: #0f172a;
+  --text-muted: #64748b;
+  --bg: #ffffff;
+  --bg-alt: #f8fafc;
+  --border: #e2e8f0;
+  --accent: #1d4ed8;
+  --accent-hover: #1e40af;
+  --accent-light: rgba(29, 78, 216, 0.06);
+
+  --serif: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --sans: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+
+  font: 20px/1.8 var(--sans);
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #94a3b8;
+    --text-heading: #e2e8f0;
+    --text-muted: #7a90aa;
+    --bg: #0b1120;
+    --bg-alt: #111827;
+    --border: #1e293b;
+    --accent: #60a5fa;
+    --accent-hover: #93bbfd;
+    --accent-light: rgba(96, 165, 250, 0.08);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  color: var(--text-heading);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Reveal animation */
+.section {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}

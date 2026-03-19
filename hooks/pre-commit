@@ -1,0 +1,8 @@
+#!/bin/sh
+gitleaks git --pre-commit --staged --verbose
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "[gitleaks] 機密値が検出されました。コミットを中止します。"
+  echo "誤検知の場合は、.gitleaksignore に該当行を追加してください。"
+  exit 1
+fi

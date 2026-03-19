@@ -1,0 +1,29 @@
+{
+  "redirects": [
+    { "source": "/cost-reduction", "destination": "/services", "permanent": true },
+    { "source": "/cost-reduction/faq", "destination": "/services", "permanent": true },
+    { "source": "/blog", "destination": "/services", "permanent": true },
+    { "source": "/blog/:slug*", "destination": "/services", "permanent": true },
+    { "source": "/cost-reduction-agreement-template.md", "destination": "/services", "permanent": true },
+    { "source": "/cost-reduction-report-template.md", "destination": "/services", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    }
+  ]
+}
